@@ -1,0 +1,18 @@
+---
+description: Project structure and file organization guidelines
+globs: 
+alwaysApply: false
+---
+# Project Structure
+
+## Main Structure
+
+```tree
+.
+
+```
+
+## File Naming and Organization
+
+- Colocate files in the folder where they're used unless they can be used across the app
+- If a component can be used in many places, place it in the `components` folder

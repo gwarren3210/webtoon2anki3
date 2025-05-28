@@ -1,0 +1,149 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Task List Management
+
+Guidelines for creating and managing task lists in markdown files to track project progress
+
+## Task List Creation
+
+1. Create task lists in a markdown file (in the project root):
+   - Use `TASKS.md` or a descriptive name relevant to the feature (e.g., `ASSISTANT_CHAT.md`)
+   - Include a clear title and description of the feature being implemented
+
+2. Structure the file with these sections:
+   ```markdown
+   # Feature Name Implementation
+   
+   Brief description of the feature and its purpose.
+   
+   ## Completed Tasks
+   
+   - [x] Task 1 that has been completed [Complexity: X/10] [Priority]
+   - [x] Task 2 that has been completed [Complexity: X/10] [Priority]
+   
+   ## In Progress Tasks
+   
+   - [ ] Task 3 currently being worked on [Complexity: X/10] [Priority]
+     - [ ] Subtask 3.1 [Complexity: X/10] [Priority]
+     - [ ] Subtask 3.2 [Complexity: X/10] [Priority]
+   
+   ## Future Tasks
+   
+   - [ ] Task 5 planned for future implementation [Complexity: X/10] [Priority]
+     - [ ] Subtask 5.1 [Complexity: X/10] [Priority]
+     - [ ] Subtask 5.2 [Complexity: X/10] [Priority]
+   ```
+
+## Task Complexity Scoring
+
+1. Use a 1-10 scale for complexity scoring:
+   - 1-3: Simple tasks, minimal dependencies
+   - 4-6: Moderate complexity, some integration required
+   - 7-8: Complex tasks, multiple dependencies
+   - 9-10: Very complex, high risk or uncertainty
+
+2. Factors to consider when scoring:
+   - Technical difficulty
+   - Integration requirements
+   - Dependencies on other components
+   - Testing and validation needs
+   - Potential risks or unknowns
+
+## Task Priority Levels
+
+1. Use three priority levels:
+   - P0: Critical path items (core functionality)
+   - P1: Important but not blocking
+   - P2: Nice to have features
+
+2. Priority assignment criteria:
+   - Impact on core functionality
+   - Dependencies from other tasks
+   - User experience impact
+   - Development workflow efficiency
+
+## Nested Subtasks
+
+1. Create nested subtasks for:
+   - Tasks with complexity ≥ 4
+   - Tasks that require multiple steps
+   - Tasks with clear sub-components
+
+2. Subtask structure:
+   - Each subtask should have its own checkbox
+   - Include complexity score and priority
+   - Maintain clear hierarchy with indentation
+   - Keep subtasks focused and actionable
+
+## Task List Maintenance
+
+1. Update the task list as you progress:
+   - Mark tasks as completed by changing `[ ]` to `[x]`
+   - Add new tasks as they are identified
+   - Move tasks between sections as appropriate
+   - Update complexity scores if needed
+   - Adjust priorities based on project needs
+
+2. Keep "Relevant Files" section updated with:
+   - File paths that have been created or modified
+   - Brief descriptions of each file's purpose
+   - Status indicators (e.g., ✅) for completed components
+
+3. Add implementation details:
+   - Architecture decisions
+   - Data flow descriptions
+   - Technical components needed
+   - Environment configuration
+
+## AI Instructions
+
+When working with task lists, the AI should:
+
+1. Regularly update the task list file after implementing significant components
+2. Mark completed tasks with [x] when finished
+3. Add new tasks discovered during implementation
+4. Maintain the "Relevant Files" section with accurate file paths and descriptions
+5. Document implementation details, especially for complex features
+6. When implementing tasks one by one, first check which task to implement next
+7. After implementing a task, update the file to reflect progress
+8. Assign appropriate complexity scores and priorities
+9. Create nested subtasks for complex tasks
+10. Update scores and priorities as project evolves
+
+## Example Task Update
+
+When updating a task from "In Progress" to "Completed":
+
+```markdown
+## In Progress Tasks
+
+- [ ] Implement database schema [Complexity: 6/10] [P0]
+  - [ ] Design table structure [4/10] [P0]
+  - [ ] Create migration scripts [3/10] [P0]
+
+## Completed Tasks
+
+- [x] Set up project structure [Complexity: 3/10] [P0]
+- [x] Configure environment variables [Complexity: 2/10] [P0]
+```
+
+Should become:
+
+```markdown
+## In Progress Tasks
+
+- [ ] Create API endpoints for data access [Complexity: 5/10] [P0]
+
+## Completed Tasks
+
+- [x] Set up project structure [Complexity: 3/10] [P0]
+- [x] Configure environment variables [Complexity: 2/10] [P0]
+- [x] Implement database schema [Complexity: 6/10] [P0]
+  - [x] Design table structure [4/10] [P0]
+  - [x] Create migration scripts [3/10] [P0]
+```
+
+After completion, write a md file under @.cursor/docs numbered in order summarizing what was completed.
