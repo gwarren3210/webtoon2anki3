@@ -9,10 +9,90 @@ alwaysApply: false
 
 ```tree
 .
-
+├── .cursor/
+│   ├── docs/
+│   ├── rules/
+│   ├── PRD.md
+│   ├── TASKS.md
+│   ├── example-prd.md
+│   ├── mcp.json
+├── .encore/
+│   └── manifest.json
+├── .git/
+├── .gitmodules
+├── .vscode/
+│   ├── c_cpp_properties.json
+│   ├── launch.json
+│   └── settings.json
+├── backend/
+│   ├── .encore/
+│   ├── .git/
+│   ├── encore.gen/
+│   ├── node_modules/
+│   ├── services/
+│   │   ├── README.md
+│   │   ├── index.ts
+│   │   └── validation/
+│   │       ├── README.md
+│   │       ├── fileValidationService.ts
+│   │       ├── index.ts
+│   │       └── validationApi.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── encore.app
+│   ├── tsconfig.json
+│   └── README.md
+├── encore.app
+├── frontend/
+│   ├── public/
+│   │   ├── favicon.ico
+│   │   ├── placeholder.svg
+│   │   └── robots.txt
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.tsx
+│   │   ├── index.css
+│   │   ├── main.tsx
+│   │   ├── vite-env.d.ts
+│   │   ├── components/
+│   │   │   ├── AnkiPreview.tsx
+│   │   │   ├── DebugViewer.tsx
+│   │   │   ├── ImageUpload.tsx
+│   │   │   ├── ProcessingStatus.tsx
+│   │   │   └── ui/
+│   │   │       └── [various UI components]
+│   │   ├── hooks/
+│   │   │   ├── use-mobile.tsx
+│   │   │   └── use-toast.ts
+│   │   ├── lib/
+│   │   │   └── utils.ts
+│   │   └── pages/
+│   │       ├── Index.tsx
+│   │       └── NotFound.tsx
+│   ├── bun.lockb
+│   ├── components.json
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── README.md
+│   ├── tailwind.config.ts
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   └── vite.config.ts
+├── venv/
 ```
 
 ## File Naming and Organization
 
 - Colocate files in the folder where they're used unless they can be used across the app
 - If a component can be used in many places, place it in the `components` folder
+
+## Backend Service Directory Rule
+
+All backend service code (TypeScript or Python) must reside within the `backend/services` directory, following the structure outlined in the PRD.
+- Each service must have its own subdirectory (e.g., `backend/services/ocr`, `backend/services/validation`).
+- No service code should be placed outside `backend/services`.
+- All agent-generated backend service files must be created in `backend/services` or its subdirectories, never in the backend root or any other directory.

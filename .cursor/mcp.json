@@ -3,6 +3,14 @@
         "encore-mcp": {
             "command": "encore",
             "args": ["mcp", "run", "--app=webtoon2anki"]
+        },
+        "github-mcp": {
+            "command": "github-mcp-server",
+            "args": [
+                "--token=$GITHUB_TOKEN",
+                "--owner=gwarren3210",
+                "--repo=webtoon2anki3"
+            ]
         }
     }
 } 
