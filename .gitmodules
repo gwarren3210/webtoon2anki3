@@ -1,6 +1,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/gwarren3210/flash-toon-ai.git
-[submodule "back"]
-	path = back
+[submodule "backend"]
+	path = backend
 	url = git@github.com:gwarren3210/webtoon2anki3-backend.git
