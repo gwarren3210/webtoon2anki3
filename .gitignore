@@ -25,11 +25,10 @@ build/
 # OS specific files
 .DS_Store
 Thumbs.db
-
 # Backend-specific ignores
-.encore
-encore.gen.go
-encore.gen.cue
-/.encore
-node_modules
-/encore.gen
+backend/.encore
+backend/encore.gen.go
+backend/encore.gen.cue
+backend/.encore
+backend/node_modules
+backend/encore.gen

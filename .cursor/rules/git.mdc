@@ -1,0 +1,8 @@
+---
+description: Rules for git
+globs: 
+alwaysApply: false
+---
+to stage changes to backend you must first `cd backend`
+
+to stage changes to frontend you must first `cd frontend`
