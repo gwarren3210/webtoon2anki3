@@ -22,7 +22,7 @@ The microservice is built using Python with the Flask web framework and the `gen
     ```bash
     docker build -t anki-builder .
     ```
-3.  Run the Docker container, mapping a local port (e.g., 6001) to the container's internal port 5000:
+3.  Run the Docker container, mapping a local port (e.g., 8080) to the container's internal port 5000:
     ```bash
     docker run -p 6001:5000 anki-builder
     ```
@@ -32,7 +32,7 @@ The microservice is built using Python with the Flask web framework and the `gen
 
 Once the Docker container is running, you can send a POST request to the `/build-package` endpoint with `TranslatedWordInfo` data.
 
-- **Endpoint URL:** `http://localhost:6001/build-package` (replace 6001 if you used a different port)
+- **Endpoint URL:** `http://localhost:8080/build-package` (replace 8080 if you used a different port)
 - **Method:** POST
 - **Content-Type:** `application/json`
 - **Request Body:** A JSON array of `TranslatedWordInfo` objects (e.g., the sample data used previously).
