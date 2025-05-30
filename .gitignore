@@ -26,9 +26,5 @@ build/
 .DS_Store
 Thumbs.db
 # Backend-specific ignores
-backend/.encore
-backend/encore.gen.go
-backend/encore.gen.cue
-backend/.encore
-backend/node_modules
-backend/encore.gen
+backend/*
+frontend/*

@@ -9,7 +9,8 @@
             "args": [
                 "--token=$GITHUB_TOKEN",
                 "--owner=gwarren3210",
-                "--repo=webtoon2anki3"
+                "--repo=webtoon2anki3",
+                "--repo=webtoon2anki3-backend"
             ]
         }
     }
