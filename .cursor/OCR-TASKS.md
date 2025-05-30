@@ -14,6 +14,7 @@ Plan and track the implementation of OCR using the ocr-space-api-wrapper package
 - [x] Get example OCR response (saved to `ocrOutputSample.json`).
 - [x] Create basic OCR integration test file (`ocrApi.test.ts`).
 - [x] Save OCR sample output for testing/mocking purposes.
+- [x] Group text based off of bound box to create lines and bubbles 
 
 
 ## In Progress Tasks
