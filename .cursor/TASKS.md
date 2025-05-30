@@ -26,57 +26,47 @@ Implementation of a Korean comic to flashcard application that extracts text fro
   - [x] Set up temporary file storage [3/10] [P0]
   - [x] Add basic error handling [2/10] [P0]
 
-- [ ] **OCR Service Research** [Complexity: 5/10] [P0]
-  - [ ] Evaluate Korean OCR APIs [4/10] [P0]
-    - [ ] Research PaddleOCR features [3/10] [P0]
-      - [ ] Test PP-OCRv4 Korean model [4/10] [P0]
-      - [ ] Evaluate layout analysis capabilities [3/10] [P0]
-      - [ ] Check deployment options [3/10] [P0]
-    - [ ] Research EasyOCR features [3/10] [P0]
-      - [ ] Test Korean language support [4/10] [P0]
-      - [ ] Evaluate batch processing capabilities [3/10] [P0]
-      - [ ] Check GPU acceleration options [3/10] [P0]
-    - [ ] Compare API features and limitations [4/10] [P0]
-      - [ ] Compare accuracy rates [5/10] [P0]
-      - [ ] Compare processing speed [4/10] [P0]
-      - [ ] Compare resource requirements [3/10] [P0]
-  - [ ] Test accuracy with sample comic images [5/10] [P0]
-    - [ ] Create test image set [3/10] [P0]
-    - [ ] Implement accuracy testing framework [4/10] [P0]
-    - [ ] Run comparative tests [4/10] [P0]
-  - [ ] Compare pricing and performance [3/10] [P0]
-  - [ ] Document API requirements [2/10] [P0]
+- [x] **OCR Service Research** [Complexity: 5/10] [P0]
+  - [x] Evaluate Korean OCR APIs [4/10] [P0]
+    - [x] Research PaddleOCR features [3/10] [P0]
+      - [ ] Test PP-OCRv4 Korean model [4/10] [P0] # Needs testing the actual integrated model
+      - [ ] Evaluate layout analysis capabilities [3/10] [P0] # Relevant for future layout analysis
+      - [x] Check deployment options [3/10] [P0] # Confirmed @paddle-js-models/ocr is JS-based
+    - [ ] Research EasyOCR features [3/10] [P0] # Keep for potential fallback
+      - [ ] Test Korean language support [4/10] [P0] # Keep for potential fallback
+      - [ ] Evaluate batch processing capabilities [3/10] [P0] # Keep for potential fallback
+      - [ ] Check GPU acceleration options [3/10] [P0] # Keep for potential fallback
+    - [x] Compare API features and limitations [4/10] [P0]
+      - [x] Compare accuracy rates [5/10] [P0] # Based on initial research
+      - [x] Compare processing speed [4/10] [P0] # Based on initial research
+      - [x] Compare resource requirements [3/10] [P0] # Based on initial research
+  - [ ] Test accuracy with sample comic images [5/10] [P0] # Still needed with integrated model
+    - [ ] Create test image set [3/10] [P0] # Still needed
+    - [ ] Implement accuracy testing framework [4/10] [P0] # Still needed
+    - [ ] Run comparative tests [4/10] [P0] # Still needed
+  - [ ] Compare pricing and performance [3/10] [P0] # Still needed for final decision/optimization
+  - [x] Document API requirements [2/10] [P0] # Documented usage in code comments
 
 ## Future Tasks
 
 ### Core Features
-- [ ] **OCR Integration** [Complexity: 7/10] [P0]
-  - [ ] Implement selected OCR service [6/10] [P0]
-    - [ ] Set up API client [3/10] [P0]
-    - [ ] Implement authentication [4/10] [P0]
-    - [ ] Create service wrapper [5/10] [P0]
-  - [ ] Create text extraction pipeline [7/10] [P0]
-    - [ ] Design pipeline architecture [5/10] [P0]
-    - [ ] Implement image preprocessing [6/10] [P0]
-      - [ ] Add contrast enhancement [4/10] [P0]
-      - [ ] Implement noise reduction [4/10] [P0]
-      - [ ] Add image normalization [3/10] [P0]
-    - [ ] Create text extraction logic [7/10] [P0]
-      - [ ] Implement text detection [6/10] [P0]
-      - [ ] Add text recognition [7/10] [P0]
-      - [ ] Create post-processing [5/10] [P0]
-    - [ ] Add post-processing steps [5/10] [P0]
-      - [ ] Implement text cleaning [4/10] [P0]
-      - [ ] Add format standardization [3/10] [P0]
-      - [ ] Create error correction [4/10] [P0]
-  - [ ] Add image preprocessing [5/10] [P0]
-    - [ ] Implement image normalization [4/10] [P0]
-    - [ ] Add noise reduction [4/10] [P0]
-    - [ ] Create contrast enhancement [3/10] [P0]
-  - [ ] Implement error recovery [4/10] [P0]
-    - [ ] Add retry mechanism [3/10] [P0]
-    - [ ] Implement fallback options [4/10] [P0]
-    - [ ] Create error logging [3/10] [P0]
+- [ ] **OCR Integration (Overlapping Tiling - Python Implementation)** [Complexity: 7/10] [P0] # Implementation tracked in .cursor/OCR-TASKS.md
+  - [x] Implement image tiling (using sharp) [Complexity: 4/10] # Superseded by Python implementation
+  - [x] Implement OCR on tiles (using @paddle-js-models/ocr) [Complexity: 6/10] # Superseded by Python implementation
+  - [x] Implement post-processing (deduplication) [Complexity: 5/10] # Superseded by Python implementation
+  - [x] Create text extraction pipeline orchestration (TypeScript) [Complexity: 2/10]
+  - [ ] Implement image preprocessing (consider if needed before tiling or per tile) [Complexity: 6/10] # Now part of Python tasks
+    - [ ] Add contrast enhancement [4/10]
+    - [ ] Implement noise reduction [4/10]
+    - [ ] Add image normalization [3/10]
+  - [ ] Add post-processing steps (beyond deduplication, e.g., text cleaning, formatting) [Complexity: 5/10] # Now part of Python tasks
+    - [ ] Implement text cleaning [4/10]
+    - [ ] Add format standardization [3/10]
+    - [ ] Create error correction [4/10]
+  - [ ] Implement error recovery [Complexity: 4/10] # Now includes handling Python process/service errors
+    - [ ] Add retry mechanism [3/10]
+    - [ ] Implement fallback options [4/10]
+    - [x] Create error logging [3/10] # Basic logging added in runOcrOnTile
 
 - [ ] **Translation Service** [Complexity: 6/10] [P0]
   - [ ] Integrate translation API [5/10] [P0]
@@ -142,21 +132,23 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 
 ### Quality Assurance
 - [ ] **Testing Infrastructure** [Complexity: 4/10] [P0]
-  - [ ] Set up unit testing [3/10] [P0]
-  - [ ] Implement integration tests [5/10] [P0]
-  - [ ] Create test data [4/10] [P0]
-  - [ ] Add CI pipeline [4/10] [P0]
+  - [ ] Set up unit testing [3/10] [P0] # Assuming this might be part of Project Environment Setup
+  - [x] Add unit tests for tiling logic (using sharp) [Complexity: 3/10] # Superseded by Python implementation
+  - [x] Add unit tests for OCR on tile logic (@paddle-js-models/ocr integration) [Complexity: 4/10] # Superseded by Python implementation
+  - [x] Add unit tests for deduplication logic (TypeScript) [Complexity: 3/10]
+  - [ ] Implement integration tests for the full OCR tiling pipeline (TypeScript calling Python) [Complexity: 5/10]
+  - [ ] Create test data (sample images for tiling/OCR) [Complexity: 4/10]
 
 - [ ] **Error Handling** [Complexity: 5/10] [P0]
-  - [ ] Implement logging system [4/10] [P0]
+  - [x] Implement logging system [4/10] [P0] # Basic logging added
   - [ ] Create error tracking [5/10] [P0]
-  - [ ] Add recovery mechanisms [6/10] [P0]
+  - [x] Add recovery mechanisms [6/10] [P0] # Basic error handling in runOcrOnTile for invalid points
   - [ ] Design error reporting [4/10] [P0]
 
 - [ ] **Documentation** [Complexity: 3/10] [P1]
   - [ ] Write API documentation [4/10] [P1]
   - [ ] Create user guides [3/10] [P1]
-  - [ ] Add code comments [2/10] [P1]
+  - [x] Add code comments [2/10] [P1] # Added comments in the implemented files
   - [ ] Create deployment guide [3/10] [P1]
 
 ## Implementation Plan
@@ -192,6 +184,7 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 ### Relevant Files
 
 - `.cursor/PRD.md` - Product Requirements Document
+- `.cursor/OCR-TASKS.md` - Detailed task list for Python OCR/Tiling implementation and Encore integration
 - `frontend/` - Frontend application
   - `src/` - Source code
     - `components/` - UI components
@@ -204,7 +197,8 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 - `backend/` - Encore backend
   - `encore/` - Encore service definitions
   - `services/` - Backend services
-    - `ocr/` - OCR service implementation
+    - `ocr/` - OCR service implementation (Original placeholder/region detection)
+    - `ocr-tiling/` - TypeScript OCR orchestration and integration with Python (Updated module)
     - `translation/` - Translation service
     - `flashcard/` - Flashcard generation
   - `tests/` - Backend tests
@@ -222,7 +216,7 @@ Implementation of a Korean comic to flashcard application that extracts text fro
    - API client for Encore services
 
 2. **Backend Services (Encore):**
-   - Korean OCR API integration
+   - Korean OCR API integration (via Python process/service)
    - Translation API integration
    - File storage system
    - Export service
@@ -251,13 +245,13 @@ Implementation of a Korean comic to flashcard application that extracts text fro
    - Encore client configuration
 
 2. **Backend Development:**
-   - Python environment
-   - Encore CLI and tools
+   - Python environment (for OCR/Tiling)
+   - Encore CLI and tools (for TypeScript backend)
    - Service dependencies
    - Local development setup
 
 3. **Production:**
-   - Encore deployment configuration
+   - Encore deployment configuration (including potential Python service deployment)
    - Environment variables
    - Security settings
    - Performance optimization
@@ -267,10 +261,12 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 
 1. **Image Processing:**
    - User uploads image through frontend
-   - Frontend sends to Encore backend
+   - Frontend sends to Encore backend (TypeScript)
    - Backend validates format
-   - Image sent to OCR service
-   - Text extracted and processed
+   - TypeScript OCR service calls Python OCR process/service
+   - Python performs tiling and OCR
+   - Python returns structured results (JSON) to TypeScript service
+   - TypeScript service parses and returns results
 
 2. **Flashcard Generation:**
    - Backend analyzes extracted text

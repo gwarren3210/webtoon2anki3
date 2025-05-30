@@ -3,10 +3,3 @@ description: How to install packages
 globs: 
 alwaysApply: false
 ---
-
-## for node packages
-- Use `pnpm`.
-
-```sh
-pnpm add ...
-```
