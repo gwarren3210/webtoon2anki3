@@ -12,10 +12,10 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 
 ### Infrastructure Setup
 - [ ] **Project Environment Setup** [Complexity: 3/10] [P0]
-  - [ ] Set up Python virtual environment [2/10] [P0]
-  - [ ] Configure Encore development environment [3/10] [P0]
-  - [ ] Initialize frontend React/TypeScript project [2/10] [P0]
-  - [ ] Set up basic project structure [2/10] [P0]
+  - [~] Set up Python virtual environment [2/10] [P0]
+  - [x] Configure Encore development environment [3/10] [P0]
+  - [x] Initialize frontend React/TypeScript project [2/10] [P0]
+  - [x] Set up basic project structure [2/10] [P0]
 
 - [ ] **Image Upload Foundation** [Complexity: 4/10] [P0]
   - [ ] Connect frontend file upload component [4/10] [P0]
@@ -29,68 +29,68 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 - [x] **OCR Service Research** [Complexity: 5/10] [P0]
   - [x] Evaluate Korean OCR APIs [4/10] [P0]
     - [x] Research PaddleOCR features [3/10] [P0]
-      - [ ] Test PP-OCRv4 Korean model [4/10] [P0] # Needs testing the actual integrated model
-      - [ ] Evaluate layout analysis capabilities [3/10] [P0] # Relevant for future layout analysis
+      - [~] Test PP-OCRv4 Korean model [4/10] [P0] # Needs testing the actual integrated model
+      - [~] Evaluate layout analysis capabilities [3/10] [P0] # Relevant for future layout analysis
       - [x] Check deployment options [3/10] [P0] # Confirmed @paddle-js-models/ocr is JS-based
-    - [ ] Research EasyOCR features [3/10] [P0] # Keep for potential fallback
-      - [ ] Test Korean language support [4/10] [P0] # Keep for potential fallback
-      - [ ] Evaluate batch processing capabilities [3/10] [P0] # Keep for potential fallback
-      - [ ] Check GPU acceleration options [3/10] [P0] # Keep for potential fallback
+    - [~] Research EasyOCR features [3/10] [P0] # Keep for potential fallback
+      - [~] Test Korean language support [4/10] [P0] # Keep for potential fallback
+      - [~] Evaluate batch processing capabilities [3/10] [P0] # Keep for potential fallback
+      - [~] Check GPU acceleration options [3/10] [P0] # Keep for potential fallback
     - [x] Compare API features and limitations [4/10] [P0]
       - [x] Compare accuracy rates [5/10] [P0] # Based on initial research
       - [x] Compare processing speed [4/10] [P0] # Based on initial research
       - [x] Compare resource requirements [3/10] [P0] # Based on initial research
-  - [ ] Test accuracy with sample comic images [5/10] [P0] # Still needed with integrated model
-    - [ ] Create test image set [3/10] [P0] # Still needed
-    - [ ] Implement accuracy testing framework [4/10] [P0] # Still needed
-    - [ ] Run comparative tests [4/10] [P0] # Still needed
-  - [ ] Compare pricing and performance [3/10] [P0] # Still needed for final decision/optimization
+  - [~] Test accuracy with sample comic images [5/10] [P0] # Still needed with integrated model
+    - [~] Create test image set [3/10] [P0] # Still needed
+    - [~] Implement accuracy testing framework [4/10] [P0] # Still needed
+    - [~] Run comparative tests [4/10] [P0] # Still needed
+  - [~] Compare pricing and performance [3/10] [P0] # Still needed for final decision/optimization
   - [x] Document API requirements [2/10] [P0] # Documented usage in code comments
 
 ## Future Tasks
 
 ### Core Features
-- [ ] **OCR Integration (Overlapping Tiling - Python Implementation)** [Complexity: 7/10] [P0] # Implementation tracked in .cursor/OCR-TASKS.md
-  - [x] Implement image tiling (using sharp) [Complexity: 4/10] # Superseded by Python implementation
-  - [x] Implement OCR on tiles (using @paddle-js-models/ocr) [Complexity: 6/10] # Superseded by Python implementation
-  - [x] Implement post-processing (deduplication) [Complexity: 5/10] # Superseded by Python implementation
+- [ ] **OCR Integration (Overlapping Tiling)** [Complexity: 7/10] [P0] # Implementation tracked in .cursor/OCR-TASKS.md
+  - [~] Implement image tiling (using sharp) [Complexity: 4/10] # Superseded by Python implementation
+  - [~] Implement OCR on tiles (using @paddle-js-models/ocr) [Complexity: 6/10] # Superseded by Python implementation
+  - [~] Implement post-processing (deduplication) [Complexity: 5/10] # Superseded by Python implementation
   - [x] Create text extraction pipeline orchestration (TypeScript) [Complexity: 2/10]
-  - [ ] Implement image preprocessing (consider if needed before tiling or per tile) [Complexity: 6/10] # Now part of Python tasks
-    - [ ] Add contrast enhancement [4/10]
-    - [ ] Implement noise reduction [4/10]
-    - [ ] Add image normalization [3/10]
-  - [ ] Add post-processing steps (beyond deduplication, e.g., text cleaning, formatting) [Complexity: 5/10] # Now part of Python tasks
-    - [ ] Implement text cleaning [4/10]
-    - [ ] Add format standardization [3/10]
-    - [ ] Create error correction [4/10]
-  - [ ] Implement error recovery [Complexity: 4/10] # Now includes handling Python process/service errors
-    - [ ] Add retry mechanism [3/10]
-    - [ ] Implement fallback options [4/10]
-    - [x] Create error logging [3/10] # Basic logging added in runOcrOnTile
+  - [~] Implement image preprocessing (consider if needed before tiling or per tile) [Complexity: 6/10]
+    - [~] Add contrast enhancement [4/10]
+    - [~] Implement noise reduction [4/10]
+    - [~] Add image normalization [3/10]
+  - [~] Add post-processing steps (beyond deduplication, e.g., text cleaning, formatting) [Complexity: 5/10]
+    - [~] Implement text cleaning [4/10]
+    - [x] Add format standardization [3/10]
+    - [~] Create error correction [4/10]
+  - [~] Implement error recovery [Complexity: 4/10] # Now includes handling Python process/service errors
+    - [~] Add retry mechanism [3/10]
+    - [~] Implement fallback options [4/10]
+    - [~] Create error logging [3/10] # Basic logging added in runOcrOnTile
 
 - [ ] **Translation Service** [Complexity: 6/10] [P0]
-  - [ ] Integrate translation API [5/10] [P0]
-    - [ ] Set up API client [3/10] [P0]
-    - [ ] Implement rate limiting [4/10] [P0]
-    - [ ] Add error handling [4/10] [P0]
-  - [ ] Implement caching system [4/10] [P0]
-    - [ ] Design cache structure [3/10] [P0]
-    - [ ] Implement cache storage [4/10] [P0]
-    - [ ] Add cache invalidation [3/10] [P0]
-  - [ ] Add fallback options [3/10] [P0]
-  - [ ] Create translation queue [4/10] [P0]
+  - [x] Integrate translation API [5/10] [P0]
+    - [x] Set up API client [3/10] [P0]
+    - [ ] Implement rate limiting [4/10] [P1]
+    - [ ] Add error handling [4/10] [P1]
+  - [x] Implement caching system [4/10] [P1]
+    - [x] Design cache structure [3/10] [P1]
+    - [x] Implement cache storage [4/10] [P1]
+    - [x] Add cache invalidation [3/10] [P1]
+  - [ ] Add fallback options [3/10] [P1]
+  - [ ] Create translation queue [4/10] [P1]
 
 - [ ] **Flashcard Generation** [Complexity: 8/10] [P0]
-  - [ ] Design flashcard data structure [5/10] [P0]
-    - [ ] Define core fields [3/10] [P0]
-    - [ ] Create validation rules [4/10] [P0]
-    - [ ] Design extension system [4/10] [P0]
-  - [ ] Implement word extraction [7/10] [P0]
-  - [ ] Create context preservation system [8/10] [P0]
-    - [ ] Design context extraction [6/10] [P0]
-    - [ ] Implement sentence parsing [7/10] [P0]
-    - [ ] Add context validation [5/10] [P0]
-  - [ ] Add formatting options [4/10] [P0]
+  - [x] Design flashcard data structure [5/10] [P0]
+    - [x] Define core fields [3/10] [P0]
+    - [ ] Create validation rules [4/10] [P1]
+    - [x] Design extension system [4/10] [P0]
+  - [x] Implement word extraction [7/10] [P0]
+  - [x] Create context preservation system [8/10] [P0]
+    - [x] Design context extraction [6/10] [P0]
+    - [x] Implement sentence parsing [7/10] [P0]
+    - [~] Add context validation [5/10] [P0]
+  - [~] Add formatting options [4/10] [P0]
 
 ### Advanced Features
 - [ ] **Bulk Processing** [Complexity: 7/10] [P1]
@@ -106,7 +106,7 @@ Implementation of a Korean comic to flashcard application that extracts text fro
   - [ ] Implement queue management [6/10] [P1]
 
 - [ ] **Export System** [Complexity: 5/10] [P1]
-  - [ ] Create Anki export format [5/10] [P1]
+  - [x] Create Anki export format [5/10] [P1]
   - [ ] Implement CSV export [3/10] [P1]
   - [ ] Add custom format options [4/10] [P1]
   - [ ] Create download manager [3/10] [P1]
@@ -119,10 +119,10 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 
 ### User Interface
 - [ ] **Frontend Development** [Complexity: 6/10] [P0]
-  - [ ] Create responsive layout [5/10] [P0]
-  - [ ] Implement drag-and-drop [6/10] [P0]
-  - [ ] Add progress indicators [4/10] [P0]
-  - [ ] Create settings panel [5/10] [P0]
+  - [x] Create responsive layout [5/10] [P0]
+  - [x] Implement drag-and-drop [6/10] [P0]
+  - [ ] Add progress indicators [4/10] [P1]
+  - [ ] Create settings panel [5/10] [P1]
 
 - [ ] **User Experience** [Complexity: 5/10] [P1]
   - [ ] Design error messages [3/10] [P1]
@@ -133,11 +133,11 @@ Implementation of a Korean comic to flashcard application that extracts text fro
 ### Quality Assurance
 - [ ] **Testing Infrastructure** [Complexity: 4/10] [P0]
   - [ ] Set up unit testing [3/10] [P0] # Assuming this might be part of Project Environment Setup
-  - [x] Add unit tests for tiling logic (using sharp) [Complexity: 3/10] # Superseded by Python implementation
-  - [x] Add unit tests for OCR on tile logic (@paddle-js-models/ocr integration) [Complexity: 4/10] # Superseded by Python implementation
+  - [~] Add unit tests for tiling logic (using sharp) [Complexity: 3/10] # Superseded by Python implementation
+  - [~] Add unit tests for OCR on tile logic (@paddle-js-models/ocr integration) [Complexity: 4/10] # Superseded by Python implementation
   - [x] Add unit tests for deduplication logic (TypeScript) [Complexity: 3/10]
   - [ ] Implement integration tests for the full OCR tiling pipeline (TypeScript calling Python) [Complexity: 5/10]
-  - [ ] Create test data (sample images for tiling/OCR) [Complexity: 4/10]
+  - [x] Create test data (sample images for tiling/OCR) [Complexity: 4/10]
 
 - [ ] **Error Handling** [Complexity: 5/10] [P0]
   - [x] Implement logging system [4/10] [P0] # Basic logging added

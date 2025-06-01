@@ -15,21 +15,19 @@ Plan and track the implementation of OCR using the ocr-space-api-wrapper package
 - [x] Create basic OCR integration test file (`ocrApi.test.ts`).
 - [x] Save OCR sample output for testing/mocking purposes.
 - [x] Group text based off of bound box to create lines and bubbles 
+- [x] Write unit tests for the `SmartOCRProcessor` and utility functions. [6/10] [P1]
+- [x] Enhance error handling for API calls and file operations. [4/10] [P1]
 
 
 ## In Progress Tasks
 
-- [ ] **Refine OCR Implementation** [Complexity: 6/10] [P0]
-  - [ ] Refine text merging and coordinate adjustment for overlapping tiles. [6/10] [P0]
-  - [ ] Enhance error handling for API calls and file operations. [4/10] [P0]
 
 ## Future Tasks
+- [ ] **Refine OCR Implementation** [Complexity: 6/10] [P1]
+  - [ ] Refine text merging and coordinate adjustment for overlapping tiles. [6/10] [P1]
 
-- [ ] **Update Main TASKS.md** [Complexity: 2/10] [P0]
+- [ ] **Update Main TASKS.md** [Complexity: 2/10] [P1]
   - [ ] Reflect changes in OCR approach.
-
-- [ ] **Write Tests** [Complexity: 6/10] [P0]
-  - [ ] Write unit tests for the `SmartOCRProcessor` and utility functions. [6/10] [P0]
 
 ## Relevant Files
 
