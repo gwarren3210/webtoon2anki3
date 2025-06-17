@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these files and directories
+!backend/
+!backend/services/
+!backend/services/anki/
+!backend/services/anki/microservice/
+!backend/services/anki/microservice/Dockerfile
+!backend/services/anki/microservice/requirements.txt
+!backend/services/anki/microservice/ankiBuilderService.py
+!cloudbuild.yaml 
