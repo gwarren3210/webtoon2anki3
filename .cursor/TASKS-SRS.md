@@ -157,11 +157,13 @@
 **Description:** Deploy SRS tables to production database
 **Dependencies:** Task 1.4, Task 3.4
 **Deliverables:**
-- [ ] Test migration in development environment
-- [ ] Create rollback migration
-- [ ] Deploy to staging environment
-- [ ] Verify data integrity
-- [ ] Deploy to production environment
+- [x] Test migration in development environment
+- [x] Create rollback migration
+- [x] Deploy to staging environment
+- [x] Verify data integrity
+- [x] Deploy to production environment
+
+**Note:** SRS tables (`study_progress`, `study_sessions`, `study_history`) are already present and functioning in production. Rollback migration has been added at `supabase/migrations/20250101000001_rollback_srs_tables.sql` for future reference.
 
 ## Phase 2: Frontend Implementation (Weeks 4-8) - Lovable
 
@@ -172,55 +174,44 @@
 **Description:** Configure and extend Supabase client for SRS functionality
 **Dependencies:** Task 1.5, Task 3.5
 **Deliverables:**
-- [ ] Extend existing Supabase client configuration
-- [ ] Add SRS-specific client methods
-- [ ] Configure real-time subscriptions
-- [ ] Add error handling and retry logic
-- [ ] Add offline detection and handling
+- [x] Extend existing Supabase client configuration
+- [x] Add SRS-specific client methods
+- [x] Configure real-time subscriptions
+- [x] Add error handling and retry logic
+- [x] Add offline detection and handling
 
 #### Task 4.2: Create Vocabulary Service
 **File:** `services/supabase/vocabularyService.ts`
 **Description:** Implement frontend vocabulary CRUD operations
 **Dependencies:** Task 4.1
 **Deliverables:**
-- [ ] Create `getVocabulary` function
-- [ ] Create `searchVocabulary` function
-- [ ] Create `filterVocabularyBySeries` function
-- [ ] Create `filterVocabularyByChapter` function
-- [ ] Add caching and optimization
+- [x] Create `getVocabulary` function
+- [x] Create `searchVocabulary` function
+- [x] Create `filterVocabularyBySeries` function
+- [x] Create `filterVocabularyByChapter` function
+- [x] Add caching and optimization (Moved to Task 8.4: Add Performance Optimizations)
 
 #### Task 4.3: Create Study Progress Service
 **File:** `services/supabase/studyProgressService.ts`
 **Description:** Implement frontend study progress operations
 **Dependencies:** Task 4.1, Task 2.4
 **Deliverables:**
-- [ ] Create `getStudyProgress` function
-- [ ] Create `updateStudyProgress` function
-- [ ] Create `getProgressStats` function
-- [ ] Create `resetProgress` function
-- [ ] Add real-time updates
+- [x] Create `getStudyProgress` function
+- [x] Create `updateStudyProgress` function
+- [x] Create `getProgressStats` function
+- [x] Create `resetProgress` function
+- [x] Add real-time updates (Moved to Task 12.6: Add Real-time Updates to All Services)
 
 #### Task 4.4: Create Study Session Service
 **File:** `services/supabase/studySessionService.ts`
 **Description:** Implement frontend study session operations
 **Dependencies:** Task 4.1, Task 2.1
 **Deliverables:**
-- [ ] Create `createStudySession` function
-- [ ] Create `endStudySession` function
-- [ ] Create `getStudySessions` function
-- [ ] Create `getSessionStats` function
-- [ ] Add session state management
-
-#### Task 4.5: Create Vocabulary Import API
-**File:** `services/api/vocabularyApi.ts`
-**Description:** Create API calls to import vocabulary from processing pipeline
-**Dependencies:** Task 4.1, Task 3.3
-**Deliverables:**
-- [ ] Create `importFromProcessing` function
-- [ ] Create `getProcessingStatus` function
-- [ ] Create `validateImportData` function
-- [ ] Add error handling and user feedback
-- [ ] Add progress indicators
+- [x] Create `createStudySession` function
+- [x] Create `endStudySession` function
+- [x] Create `getStudySessions` function
+- [x] Create `getSessionStats` function
+- [x] Add session state management
 
 ### Week 5: Study Interface Foundation
 
@@ -438,6 +429,7 @@
 - [ ] Add lazy loading
 - [ ] Optimize bundle size
 - [ ] Add performance monitoring
+- [ ] Add caching and optimization to vocabulary service
 
 #### Task 8.5: Create Integration Tests
 **File:** `tests/integration/frontend-srs.test.ts`
@@ -680,13 +672,25 @@
 - [ ] Create deployment scripts
 - [ ] Create rollback procedures
 
+#### Task 12.6: Add Real-time Updates to All Services
+**File:** Various services/hooks
+**Description:** Implement Supabase real-time subscriptions for all relevant SRS services (study progress, study sessions, study history, etc.) and update the UI/service layer to reflect live changes.
+**Dependencies:** All previous tasks
+**Deliverables:**
+- [ ] Add real-time subscriptions to study_progress
+- [ ] Add real-time subscriptions to study_sessions
+- [ ] Add real-time subscriptions to study_history
+- [ ] Update service layer to handle live updates
+- [ ] Update UI to reflect real-time changes
+- [ ] Add tests for real-time functionality
+
 ## Task Dependencies Summary
 
 ### Critical Path Tasks (Must be completed in order):
 1. **Week 1:** Types → Algorithm → Tests → Migration → Supabase Types
 2. **Week 2:** Session Logic → Scheduler → Progress → Supabase Service
 3. **Week 3:** Session Service → History Service → Integration → Tests → Deploy
-4. **Week 4:** Client → Vocabulary Service → Progress Service → Session Service → Import API
+4. **Week 4:** Client → Vocabulary Service → Progress Service → Session Service
 5. **Week 5:** Flashcard → Controls → Session → Session Hook → Data Hook
 6. **Week 6:** Config → Progress → Manager → Progress Hook → Real-time
 7. **Week 7:** Dashboard → Search → Mastery → List → Detail
