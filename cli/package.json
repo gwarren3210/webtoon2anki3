@@ -1,0 +1,28 @@
+{
+  "name": "w2a",
+  "version": "0.1.0",
+  "description": "Webtoon2Anki CLI tool for managing series, chapters, cards, and study workflows.",
+  "main": "dist/index.js",
+  "bin": {
+    "w2a": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "start": "ts-node index.ts",
+    "link": "npm link",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "commander": "^11.0.0",
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.0.0",
+    "eslint": "^8.0.0"
+  }
+}
