@@ -12,6 +12,7 @@ enum FSRSRating {
   Easy = 4,
 }
 
+
 const ratingDescription = `
 1: Again (You didn't remember it)
 2: Hard (You remembered it, but with difficulty)
@@ -20,8 +21,14 @@ const ratingDescription = `
 `;
 
 // Local type for FSRS states and queues (to avoid import issues)
-type FSRSState = 'New' | 'Learning' | 'Review' | 'Relearning';
-type SessionQueues = Record<FSRSState, Array<any>>;
+enum State {
+  New = 0,
+  Learning = 1,
+  Review = 2,
+  Relearning = 3
+}
+//type FSRSState = 'New' | 'Learning' | 'Review' | 'Relearning';
+type SessionQueues = Record<State, Array<any>>;
 
 /**
  * Registers the 'study' subcommands to the CLI program.
@@ -154,10 +161,10 @@ export function registerStudyCommands(program: Command): void {
  * @returns {void}
  */
 function printCardsLeftSummary(queues: SessionQueues): void {
-  const stateLabels: FSRSState[] = ['New', 'Learning', 'Review', 'Relearning'];
+  const stateLabels = [State.New, State.Learning, State.Review, State.Relearning];
   const total = stateLabels.reduce((sum, cat) => sum + (queues[cat]?.length || 0), 0);
   console.log(`\nCards left: ${total}`);
   stateLabels.forEach(cat => {
-    console.log(`  ${cat}: ${queues[cat]?.length || 0}`);
+    console.log(`  ${State[cat]}: ${queues[cat]?.length || 0}`);
   });
-} 
+}
