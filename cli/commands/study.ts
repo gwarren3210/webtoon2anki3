@@ -19,6 +19,10 @@ const ratingDescription = `
 4: Easy (You remembered it easily)
 `;
 
+// Local type for FSRS states and queues (to avoid import issues)
+type FSRSState = 'New' | 'Learning' | 'Review' | 'Relearning';
+type SessionQueues = Record<FSRSState, Array<any>>;
+
 /**
  * Registers the 'study' subcommands to the CLI program.
  * @param {Command} program - The main CLI program
@@ -56,12 +60,10 @@ export function registerStudyCommands(program: Command): void {
         }
         let quit = false;
         
-        console.log("----------------");
-        console.log("Entering loop");
-        console.log("----------------");
         while (sessionState.currentCard) {
+          // Show cards left summary before each card
+          printCardsLeftSummary(sessionState.queues);
           const card = sessionState.currentCard;
-          console.log("=== CARD ===", card);
 
           console.log(`\nWord: ${card.korean}`);
           const reveal = await promptForString('Press Enter to show definition, or type q to quit:');
@@ -144,4 +146,18 @@ export function registerStudyCommands(program: Command): void {
     });
 
   program.addCommand(study);
+}
+
+/**
+ * Prints a summary of cards left in total and by category.
+ * @param {SessionQueues} queues - The session queues object
+ * @returns {void}
+ */
+function printCardsLeftSummary(queues: SessionQueues): void {
+  const stateLabels: FSRSState[] = ['New', 'Learning', 'Review', 'Relearning'];
+  const total = stateLabels.reduce((sum, cat) => sum + (queues[cat]?.length || 0), 0);
+  console.log(`\nCards left: ${total}`);
+  stateLabels.forEach(cat => {
+    console.log(`  ${cat}: ${queues[cat]?.length || 0}`);
+  });
 } 
