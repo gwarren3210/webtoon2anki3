@@ -4,3 +4,6 @@
 [submodule "backend"]
 	path = backend
 	url = git@github.com:gwarren3210/webtoon2anki3-backend.git
+[submodule "frontend2"]
+	path = frontend2
+	url = https://github.com/gwarren3210/manhwa-study-cards-48
