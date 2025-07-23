@@ -7,3 +7,6 @@
 [submodule "frontend2"]
 	path = frontend2
 	url = https://github.com/gwarren3210/manhwa-study-cards-48
+[submodule "frontend3"]
+	path = frontend3
+	url = https://github.com/gwarren3210/webtoon-flashcard-learn-71.git
