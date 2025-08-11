@@ -27,4 +27,4 @@ build/
 Thumbs.db
 # Backend-specific ignores
 backend/*
-frontend/*
+frontend3/*
