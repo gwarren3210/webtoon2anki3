@@ -16,11 +16,11 @@ Webtoon2Anki helps language learners create Anki flashcards from their favorite 
 
 - `/frontend` — Web UI
 - `/backend` — Encore backend services
-- `/cli` — Command-line interface
+- `/cli` — Command-line interface (deprecated)
 - `/tests` — Additional test scripts and data
 - `/sample-images` — Example images for testing
 
-## Quick Start Guide
+## Quick Start Guide (deprecated, only useable through exisitng vocab, open a PR for ANKI support)
 
 1. **Prepare Your Screenshots**
    - Take screenshots of the webtoon panels you want to learn from
