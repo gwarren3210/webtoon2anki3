@@ -20,7 +20,7 @@ Webtoon2Anki helps language learners create Anki flashcards from their favorite 
 - `/tests` — Additional test scripts and data
 - `/sample-images` — Example images for testing
 
-## Quick Start Guide (deprecated, only useable through exisitng vocab, open a PR for ANKI support)
+## Quick Start Guide (deprecated, only useable through existing vocab via frontend, open a PR for ANKI support)
 
 1. **Prepare Your Screenshots**
    - Take screenshots of the webtoon panels you want to learn from
