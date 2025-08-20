@@ -1,24 +1,24 @@
-create or replace function get_chapter_cards(
+CREATE OR REPLACE FUNCTION public.get_chapter_cards(
   p_user_id uuid,
   p_series_slug text,
   p_chapter_number text
 )
-returns table (
+ RETURNS TABLE(
   id uuid,
   user_id uuid,
   korean text,
   english text,
   pronunciation text,
   exampleSentence text,
-  createdAt timestamptz,
-  successRate float,
+  createdAt timestamp with time zone,
+  successRate double precision,
   importanceScore integer,
   card jsonb
 )
-language sql
-as $$
+ LANGUAGE sql
+AS $function$
   select
-    w.id,
+    fp.id,
     fp.user_id,
     w.word as korean,
     w.definition as english,
@@ -49,4 +49,4 @@ as $$
   left join fsrs_progress fp on fp.vocabulary_id = w.id and fp.user_id = p_user_id
   where s.slug = p_series_slug
     and c.chapter_number = p_chapter_number;
-$$;
+$function$
