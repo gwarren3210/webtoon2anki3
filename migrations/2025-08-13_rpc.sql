@@ -5,6 +5,7 @@ CREATE OR REPLACE FUNCTION public.get_chapter_cards(
 )
  RETURNS TABLE(
   id uuid,
+  vocabulary_id uuid,
   user_id uuid,
   korean text,
   english text,
@@ -19,6 +20,7 @@ CREATE OR REPLACE FUNCTION public.get_chapter_cards(
 AS $function$
   select
     fp.id,
+    w.id as vocabulary_id,
     fp.user_id,
     w.word as korean,
     w.definition as english,
